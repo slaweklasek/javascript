@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Kalkulator matematyczny w .js">
+	<meta name="keywords" content="HTML,CSS,JavaScript">
+	<meta name="author" content="Sławomir Lasek 2017 - codedLife">
+<title>Kalkulator matematyczny</title>
+<script>
+function matematyka(button){
+	
+	var a, b;
+	wynik=0;
+	a=parseFloat(document.getElementById("a").value.replace(',','.'));
+	b=parseFloat(document.getElementById("b").value.replace(',','.'));
+	if(isNaN(a)||isNaN(b)){
+		wynik="Wprowadziłeś nieprawidłowe dane. Musisz podać dwie liczby";
+	}
+	else{
+		
+			if(button.value=="+"){
+				wynik=a+b;
+			}
+			else if(button.value=="-"){
+				wynik=a-b;
+			}
+			else if(button.value=="*"){
+				wynik=a*b;
+			}
+			else if(button.value=="/"){
+				wynik=a/b;
+			}
+						
+		}
+		
+
+	
+	document.getElementById("wynik").innerHTML = wynik;
+}
+
+
+function resetWyniku(){
+
+	document.getElementById("form").reset();
+	document.getElementById("wynik").innerHTML="=";
+}
+</script>
+</head
+
+<body>
+
+<div class="w3-container">
+  <div class="w3-card-4" style="width:100%;">
+    <header class="w3-container w3-blue">
+      <h1>Kalkulator matematyczny</h1>
+    </header>
+    <div class="w3-container">		
+	  <div class="w3-container">
+		<form class="w3-container" style="width:30%" id="form"><br>
+		
+			<input autofocus class="w3-input w3-border" type="text" name="a" id="a"><br>
+			<input class="w3-input w3-border" type="text" name="b" id="b"> 			
+			<br>
+				<div class="w3-bar w3-center">				
+					<input id="dodawanie" value="+" type="button" class="w3-btn w3-white w3-border w3-border-green w3-round-large" onclick="matematyka(this)">
+					<input id="odejmowanie"value="-" type="button" class="w3-btn w3-white w3-border w3-border-green w3-round-large" onclick="matematyka(this)">
+					<input id="mnożenie"value="*" type="button" class="w3-btn w3-white w3-border w3-border-green w3-round-large" onclick="matematyka(this)">
+					<input id="dzielenie"value="/" type="button" class="w3-btn w3-white w3-border w3-border-green w3-round-large" onclick="matematyka(this)">
+				</div>
+			
+			<div class="w3-panel w3-green w3-round">
+				<label class="w3-panel w3-green w3-round" id="wynik">=</label>
+			</div>
+			
+			<div class="w3-center">
+			<input class="w3-btn w3-white w3-border w3-border-red w3-round-large w3-center" type="button" value="wyczyść" onclick="resetWyniku()">
+			</div>
+			<br>		
+		</form>
+	  </div>
+    </div>
+
+    <footer class="w3-container w3-blue">
+      <h5>&#9400 "codedLife" Sławomir Lasek, Aplikacje Internetowe 2017 </h5>
+    </footer>
+  </div>
+</div>
+
+
+</body>
+</html> 
